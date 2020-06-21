@@ -18,7 +18,7 @@ import Divider from '@material-ui/core/Divider';
 import { red } from '@material-ui/core/colors';
 import Table from '../../components/Table';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) =>({
     root: {
         minWidth: 275,
     },
@@ -34,9 +34,9 @@ const useStyles = makeStyles({
         marginBottom: 12,
     },
     avatar: {
-        backgroundColor: red[500],
+        backgroundColor: theme.palette.primary,
     },
-});
+}));
 
 export default function JobDetails(props) {
     const classes = useStyles();
@@ -54,7 +54,7 @@ export default function JobDetails(props) {
                         </IconButton>
                     }
                     title={props.job.jobTitle}
-                    subheader={props.job.jobDetail.postedOn}
+                    subheader= {props.job.jobDetail.shortDescription}
                 /><Divider variant="middle" />
                 <CardContent>
                     <Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -72,14 +72,18 @@ export default function JobDetails(props) {
                             <Grid item xs={6}>
                                 {props.job.dates && <Table rows={props.job.dates} tableTitle="Important Dates" />}
                             </Grid>
-                            <Grid item xs={6} spacing={2}>
-                                {props.job.vacancies && <Table rows={props.job.vacancies} tableTitle="Vacencies" />}
-                            </Grid>
                             <Grid item xs={6}>
                                 {props.job.examDetails && <Table rows={props.job.examDetails} tableTitle="Exam Details" />}
                             </Grid>
-                            <Grid item xs={6} spacing={2}>
+                            <Grid item xs={12} spacing={2}>
                                 {props.job.links && <Table rows={props.job.links} tableTitle="Important Downloads" />}
+                            </Grid>
+                            
+                            <Grid item xs={6} spacing={2}>
+                                {props.job.eligibilities && <Table rows={props.job.eligibilities} tableTitle="Important Downloads" />}
+                            </Grid>
+                            <Grid item xs={6} spacing={2}>
+                                {props.job.vacancies && <Table rows={props.job.vacancies} tableTitle="Vacencies" />}
                             </Grid>
                         </Grid>
                     </Typography>

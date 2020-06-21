@@ -11,7 +11,7 @@ import Paper from '@material-ui/core/Paper';
 const useStyles = makeStyles({
     table: {
         minWidth: 50,
-        border:0
+        border: 0
     },
 });
 
@@ -35,23 +35,30 @@ export default function DenseTable(props) {
             <Table className={classes.table} size="small" aria-label="a dense table">
                 <TableHead>
                     <TableRow>
-                        <TableCell align="center" colSpan={2}>{props.tableTitle}</TableCell>
-                        {/* <TableCell align="right">Calories</TableCell>
-                        <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                        <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                        <TableCell align="right">Protein&nbsp;(g)</TableCell> */}
-                        
+                        <TableCell align="center" colSpan={props.rows.length}>{props.tableTitle}</TableCell>
+                        {/* <TableCell align="center">Calories</TableCell>
+                        <TableCell align="center">Fat&nbsp;(g)</TableCell>
+                        <TableCell align="center">Carbs&nbsp;(g)</TableCell>
+                        <TableCell align="center">Protein&nbsp;(g)</TableCell> */}
+
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {rows.map((row) => (
-                        <TableRow key={row.name}>
-                            <TableCell component="th" align="right" scope="row">
-                               <i>{row.name}</i> 
+                    <TableRow>
+                        {rows.map((row) => (
+                            <TableCell component="th" align="center" scope="row">
+                                <b>{row.name}</b>
                             </TableCell>
-                            <TableCell align="left"><b>{row.value}</b></TableCell>
-                        </TableRow>
-                    ))}
+                        ))}
+                    </TableRow>
+
+                    <TableRow>
+                        {rows.map((row) => (
+                            <TableCell component="th" align="center" scope="row">
+                                {row.value}
+                            </TableCell>
+                        ))}
+                    </TableRow>
                 </TableBody>
             </Table>
         </TableContainer>

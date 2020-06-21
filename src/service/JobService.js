@@ -29,7 +29,18 @@ class Job {
             }, {
                 name: 'OBC',
                 value: '50'
-            }]
+            }],
+            eligibilities: [{
+                name: 'Army Wing',
+                value: 'Passed/Appearing 10+2 Exam in any recognized board Passed/Appearing 10+2     Exam in any recognized board'
+            }, {
+                name: 'Air Force and Naval Wing',
+                value: 'Passed/Appearing 10+2 Exam in any recognized board'
+            }],
+            stepsToFillForm: [
+                'Got to website',
+                'Open given link'
+            ]
         }, {
             jobId: 2,
             jobTitle: 'UPPSC Assistant Registrar Result 2020',
@@ -98,7 +109,7 @@ class Job {
                 { name: 'Download Assistant Registrar Result', value: '' },
                 { name: 'Download Assistant Registrar Result', value: '' },
                 { name: 'Download Assistant Registrar Result', value: '' }]
-        },{
+        }, {
             jobId: 1,
             jobTitle: 'UPPSC Assistant Registrar Result 2020',
             jobDetail: {
@@ -192,7 +203,7 @@ class Job {
                 { name: 'Download Assistant Registrar Result', value: '' },
                 { name: 'Download Assistant Registrar Result', value: '' },
                 { name: 'Download Assistant Registrar Result', value: '' }]
-        },{
+        }, {
             jobId: 1,
             jobTitle: 'UPPSC Assistant Registrar Result 2020',
             jobDetail: {
@@ -281,11 +292,11 @@ class Job {
                 value: 'Screening'
             }],
             links: [
-                { name: 'Download Assistant Registrar Result', value: '' },
-                { name: 'Download Assistant Registrar Result', value: '' },
-                { name: 'Download Assistant Registrar Result', value: '' },
-                { name: 'Download Assistant Registrar Result', value: '' },
-                { name: 'Download Assistant Registrar Result', value: '' }]
+                { name: 'Download Assistant Registrar', value: 'www.google.com' },
+                { name: 'Download Assistant Registrar', value: 'www.google.com' },
+                { name: 'Download Assistant Registrar', value: 'www.google.com' },
+                { name: 'Download Assistant Registrar', value: 'www.google.com' },
+                { name: 'Download Assistant Registrar', value: 'www.google.com' }]
         }]
         return jobs;
     }

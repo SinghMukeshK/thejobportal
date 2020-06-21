@@ -60,7 +60,7 @@ export default function JobCard(props) {
     };
 
     return (
-        <Card className={classes.root} variant="outlined">
+        <Card className={classes.root} variant="elevation">
             <CardHeader
                 avatar={
                     <Avatar aria-label="recipe" className={classes.avatar}>            R          </Avatar>
@@ -103,14 +103,14 @@ export default function JobCard(props) {
 
             </CardContent>
             <Divider variant="middle" />
-            <CardActions>
+            <CardActions lang="hindi">
                 <Link target="_blank" to={`/job/${props.job.jobId}/${props.job.jobTitle}`} size="small">
-                    <Button variant="outlined" color="primary" size="small" >Learn More</Button>
+                    <Button variant="text" color="primary" size="small" >Learn More</Button>
                 </Link>
-                <Button variant="outlined" color="primary" size="small" >Apply Now</Button>
-                <Button variant="outlined" color="primary" size="small" startIcon={<ThumbUpAltOutlined />}>Like</Button>
+                <Button variant="text" color="primary" size="small" >Apply Now</Button>
+                <Button variant="text" color="primary" size="small" startIcon={<ThumbUpAltOutlined />}>Like</Button>
 
-                <Button variant="outlined" color="primary" size="small" startIcon={<ShareOutlined />}>Share</Button>
+                <Button variant="text" color="primary" size="small" startIcon={<ShareOutlined />}>Share</Button>
                 <Button color="primary" size="small" startIcon={<CommentOutlined />} >Comment</Button>
                 <Button color="primary" size="small" onClick={toggleDrawer('right', true)}>View Fill Detail</Button>
                 <Drawer

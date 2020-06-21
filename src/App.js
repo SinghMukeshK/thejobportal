@@ -14,13 +14,13 @@ import RecentItems from './views/RecentItems';
 import purple from '@material-ui/core/colors/purple';
 import green from '@material-ui/core/colors/green';
 
-import cyan from '@material-ui/core/colors/cyan';
+import red from '@material-ui/core/colors/blueGrey';
 import UpcomingJobs from './views/Job/UpcomingJobs';
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: cyan[500],
+      main: red[500],
     },
     secondary: {
       main: green[500],
