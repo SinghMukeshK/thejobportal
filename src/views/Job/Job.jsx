@@ -13,7 +13,7 @@ const Job = () => {
                 {jobs.map(job => {
                     return (
                         <Grid item spacing={0}>
-                            <JobCard job={job}/>
+                            <JobCard job={job} />
                         </Grid>
                     )
                 })}

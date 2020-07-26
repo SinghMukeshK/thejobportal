@@ -14,7 +14,7 @@ import RecentItems from './views/RecentItems';
 import purple from '@material-ui/core/colors/purple';
 import green from '@material-ui/core/colors/green';
 
-import red from '@material-ui/core/colors/blueGrey';
+import red from '@material-ui/core/colors/blue';
 import UpcomingJobs from './views/Job/UpcomingJobs';
 
 const theme = createMuiTheme({
@@ -57,7 +57,7 @@ function App(props) {
           </Grid>
           <Grid container sm={12} >
             <Grid container item sm={2}>
-              <RecentItems />
+              {/* <RecentItems /> */}
             </Grid>
             <Grid container item sm={8}>
               <Switch>
@@ -67,7 +67,7 @@ function App(props) {
               </Switch>
             </Grid>
             <Grid container item sm={2}>
-              <UpcomingJobs />
+              {/* <UpcomingJobs /> */}
             </Grid>
           </Grid>
         </ThemeProvider >

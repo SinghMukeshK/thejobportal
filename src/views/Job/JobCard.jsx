@@ -45,82 +45,73 @@ export default function JobCard(props) {
     const classes = useStyles();
     const bull = <span className={classes.bullet}>•</span>;
     const [state, setState] = React.useState({
-      top: false,
-      left: false,
-      bottom: false,
-      right: false,
+        top: false,
+        left: false,
+        bottom: false,
+        right: false,
     });
-  
+
     const toggleDrawer = (anchor, open) => (event) => {
-      if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-        return;
-      }
-  
-      setState({ ...state, [anchor]: open });
+        console.log('@@@@@@@@@@@@@@@@@@@@@@')
+        if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+            return;
+        }
+
+        setState({ ...state, [anchor]: open });
     };
 
     return (
-        <Card className={classes.root} variant="elevation">
+        <Card className={classes.root} variant="" color="primary">
             <CardHeader
                 avatar={
-                    <Avatar aria-label="recipe" className={classes.avatar}>            R          </Avatar>
+                    <Avatar color="primary" aria-label="recipe" className={classes.avatar}>            R          </Avatar>
                 }
                 action={
                     <IconButton aria-label="settings">
                         <MoreHoriz color="primary" />
                     </IconButton>
                 }
+                color="primary"
                 title={props.job.jobTitle}
-                subheader={props.job.jobDetail.postedOn}
-            /><Divider variant="middle" />
+                subheader={props.job.jobDetail.updatedOn}
+            />
+            <Divider variant="middle" />
             <CardContent>
-                <Typography className={classes.title} color="textSecondary" gutterBottom>
+                {/* <Typography className={classes.title} color="textSecondary" gutterBottom>
                     {props.job.jobDetail.shortDescription}
-                </Typography>
-                <Typography variant="h6" component="h2">
-                </Typography>
+                </Typography> */}
+                {/* <Typography className={classes.pos} color="textSecondary">
+                    Updated on {props.job.jobDetail.updatedOn}
+                </Typography> */}
+                {/* <Typography variant="h6" component="h2"></Typography> */}
                 <Typography className={classes.pos} color="textSecondary">
                 </Typography>
-                <Typography variant="body2" component="p">
+                <Typography variant="body2" gutterBottom>
                     {props.job.jobDetail.detailDescription}
                 </Typography>
-                {/* <Typography variant="body2" component="p">
-                    <Grid container spacing={1}>
-                        <Grid item xs={6}>
-                            {props.job.dates && <Table rows={props.job.dates} tableTitle="Important Dates" />}
-                        </Grid>
-                        <Grid item xs={6} spacing={2}>
-                            {props.job.vacancies && <Table rows={props.job.vacancies} tableTitle="Vacencies" />}
-                        </Grid>
-                        <Grid item xs={6}>
-                            {props.job.examDetails && <Table rows={props.job.examDetails} tableTitle="Exam Details" />}
-                        </Grid>
-                        <Grid item xs={6} spacing={2}>
-                            {props.job.links && <Table rows={props.job.links} tableTitle="Important Downloads" />}
-                        </Grid>
-                    </Grid>
-                </Typography> */}
+                <Grid container spacing={1} style={{ paddingTop: "5px" }}>
+                    {props.job.dates && <Table rows={props.job.dates} tableTitle="Important Dates" md="12" />}
+                </Grid>
 
             </CardContent>
             <Divider variant="middle" />
             <CardActions lang="hindi">
-                <Link target="_blank" to={`/job/${props.job.jobId}/${props.job.jobTitle}`} size="small">
+                {/* <Link target="_blank" to={`/job/${props.job.jobId}/${props.job.jobTitle}`} size="small">
                     <Button variant="text" color="primary" size="small" >Learn More</Button>
-                </Link>
-                <Button variant="text" color="primary" size="small" >Apply Now</Button>
-                <Button variant="text" color="primary" size="small" startIcon={<ThumbUpAltOutlined />}>Like</Button>
+                </Link> */}
+                <Button variant="outlined" color="primary" size="small"  >Apply Now</Button>
+                {/* <Button variant="text" color="primary" size="small" startIcon={<ThumbUpAltOutlined />}>Like</Button>
 
                 <Button variant="text" color="primary" size="small" startIcon={<ShareOutlined />}>Share</Button>
-                <Button color="primary" size="small" startIcon={<CommentOutlined />} >Comment</Button>
-                <Button color="primary" size="small" onClick={toggleDrawer('right', true)}>View Fill Detail</Button>
+                <Button color="primary" size="small" startIcon={<CommentOutlined />} >Comment</Button> */}
+                <Button variant="outlined" color="primary" size="small" onClick={toggleDrawer('right', true)}>View Full Detail</Button>
                 <Drawer
                     anchor={'right'}
                     open={state['right']}
                     onClose={toggleDrawer('right', false)}
                     onOpen={toggleDrawer('right', true)}
-                    minWidth="100px"
                 >
-                    <JobDetails job={props.job}/>
+                    <JobDetails job={props.job} close={toggleDrawer} />
                 </Drawer>
             </CardActions>
         </Card>

@@ -30,7 +30,8 @@ const useStyles = makeStyles({
         transform: 'scale(0.8)',
     },
     title: {
-        fontSize: 14,
+        fontSize: 12,
+        fontWeight: 500
     },
     pos: {
         marginBottom: 12,
@@ -57,32 +58,19 @@ export default function OutlinedCard(props) {
                 }
                 title={props.job.jobTitle}
                 subheader={props.job.jobDetail.postedOn}
-            /><Divider variant="middle" />
+            />
+            <Divider variant="middle" />
             <CardContent>
                 <Typography className={classes.title} color="textSecondary" gutterBottom>
                     {props.job.jobDetail.shortDescription}
                 </Typography>
-                <Typography variant="h6" component="h2">
-                </Typography>
-                <Typography className={classes.pos} color="textSecondary">
-                </Typography>
-                {/* <Typography variant="body2" component="p">
-                    {props.job.jobDetail.detailDescription}
-                </Typography> */}
                 <Typography variant="body2" component="p">
                     <Grid container spacing={1}>
-                        <Grid item xs={6}>
-                            {props.job.dates && <Table rows={props.job.dates} tableTitle="Important Dates" />}
-                        </Grid>
-                        <Grid item xs={6} spacing={2}>
-                            {props.job.vacancies && <Table rows={props.job.vacancies} tableTitle="Vacencies" />}
-                        </Grid>
-                        <Grid item xs={6}>
-                            {props.job.examDetails && <Table rows={props.job.examDetails} tableTitle="Exam Details" />}
-                        </Grid>
-                        <Grid item xs={6} spacing={2}>
-                            {props.job.links && <Table rows={props.job.links} tableTitle="Important Downloads" />}
-                        </Grid>
+                        {props.job.dates && <Table rows={props.job.dates} tableTitle="Important Dates" />}
+
+                        {props.job.vacancies && <Table rows={props.job.vacancies} tableTitle="Vacencies" />}
+                        {props.job.examDetails && <Table rows={props.job.examDetails} tableTitle="Exam Details" />}
+                        {props.job.links && <Table rows={props.job.links} tableTitle="Important Downloads" />}
                     </Grid>
                 </Typography>
 
@@ -108,6 +96,6 @@ export default function OutlinedCard(props) {
                 {/*
                  <SimpleModal data={props.job} /> */}
             </CardActions>
-        </Card>
+        </Card >
     );
 }

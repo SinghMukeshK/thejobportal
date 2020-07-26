@@ -17,10 +17,15 @@ import MoreHoriz from '@material-ui/icons/MoreHoriz';
 import Divider from '@material-ui/core/Divider';
 import { red } from '@material-ui/core/colors';
 import Table from '../../components/Table';
+import ColumnarTable from '../../components/ColumnarTable';
+import AppBar from '../../components/AppBar'
 
-const useStyles = makeStyles((theme) =>({
+const useStyles = makeStyles((theme) => ({
     root: {
         minWidth: 275,
+        marginTop: "80px",
+        marginLeft: "50px",
+        marginRight: "50px"
     },
     bullet: {
         display: 'inline-block',
@@ -40,64 +45,72 @@ const useStyles = makeStyles((theme) =>({
 
 export default function JobDetails(props) {
     const classes = useStyles();
-
+    console.log(props)
     return (
         <Grid container>
-            <Card className={classes.root} variant="outlined">
-                <CardHeader
-                    avatar={
-                        <Avatar aria-label="recipe" className={classes.avatar}>            R          </Avatar>
-                    }
-                    action={
-                        <IconButton aria-label="settings">
-                            <MoreHoriz color="primary" />
-                        </IconButton>
-                    }
-                    title={props.job.jobTitle}
-                    subheader= {props.job.jobDetail.shortDescription}
-                /><Divider variant="middle" />
-                <CardContent>
-                    <Typography className={classes.title} color="textSecondary" gutterBottom>
-                        {props.job.jobDetail.shortDescription}
-                    </Typography>
-                    <Typography variant="h6" component="h2">
-                    </Typography>
-                    <Typography className={classes.pos} color="textSecondary">
-                    </Typography>
-                    <Typography variant="body2" component="p">
-                        {props.job.jobDetail.detailDescription}
-                    </Typography>
-                    <Typography variant="body2" component="p">
-                        <Grid container spacing={1}>
-                            <Grid item xs={6}>
+            <AppBar />
+            <Grid item md={12}>
+                <Card className={classes.root} variant="elevation">
+                    <CardHeader
+                        avatar={
+                            <Avatar aria-label="recipe" className={classes.avatar}>            R          </Avatar>
+                        }
+                        action={
+                            <IconButton aria-label="settings">
+                                <MoreHoriz color="primary" />
+                            </IconButton>
+                        }
+                        title={props.job.jobTitle}
+                        subheader={props.job.jobDetail.shortDescription}
+                    /><Divider variant="middle" />
+                    <CardContent>
+                        <Typography className={classes.title} color="textSecondary" gutterBottom>
+                            {props.job.jobDetail.shortDescription}
+                        </Typography>
+                        <Typography variant="h6" component="h2">
+                        </Typography>
+                        <Typography className={classes.pos} color="textSecondary">
+                        </Typography>
+                        <Typography variant="body2" component="p">
+                            {props.job.jobDetail.detailDescription}
+                        </Typography>
+                        <Typography variant="body2" component="p">
+                            <Grid container spacing={1}>
+                                {/* <Grid item xs={6}> */}
                                 {props.job.dates && <Table rows={props.job.dates} tableTitle="Important Dates" />}
-                            </Grid>
-                            <Grid item xs={6}>
+                                {/* </Grid>
+                                <Grid item xs={6}> */}
                                 {props.job.examDetails && <Table rows={props.job.examDetails} tableTitle="Exam Details" />}
-                            </Grid>
-                            <Grid item xs={12} spacing={2}>
-                                {props.job.links && <Table rows={props.job.links} tableTitle="Important Downloads" />}
-                            </Grid>
-                            
-                            <Grid item xs={6} spacing={2}>
-                                {props.job.eligibilities && <Table rows={props.job.eligibilities} tableTitle="Important Downloads" />}
-                            </Grid>
-                            <Grid item xs={6} spacing={2}>
+                                {/* </Grid>
+
+                                <Grid item xs={6} spacing={2}> */}
                                 {props.job.vacancies && <Table rows={props.job.vacancies} tableTitle="Vacencies" />}
+                                {props.job.eligibilities && <ColumnarTable rows={props.job.eligibilities} tableTitle="Eligibility" />}
+                                {/* </Grid>
+                                <Grid item xs={6} spacing={2}> */}
+                                {/* </Grid>
+                                <Grid item xs={12} spacing={2}> */}
+                                {/* </Grid> */}
                             </Grid>
-                        </Grid>
-                    </Typography>
+                            <Grid container spacing={1}>
+                                {props.job.links && <ColumnarTable rows={props.job.links} tableTitle="Important Downloads" />}
+                            </Grid>
+                        </Typography>
 
-                </CardContent>
-                <Divider variant="middle" />
-                <CardActions>
-                    <Button variant="outlined" color="primary" size="small" >Apply Now</Button>
-                    <Button variant="outlined" color="primary" size="small" startIcon={<ThumbUpAltOutlined />}>Like</Button>
-                    <Button variant="outlined" color="primary" size="small" startIcon={<ShareOutlined />}>Share</Button>
-                    <Button color="primary" size="small" startIcon={<CommentOutlined />} >Comment</Button>
-
-                </CardActions>
-            </Card>
+                    </CardContent>
+                    <Divider variant="middle" />
+                    <CardActions>
+                        <Button variant="outlined" color="primary" size="small" >Apply Now</Button>
+                        {/* <Button variant="outlined" color="primary" size="small" startIcon={<ThumbUpAltOutlined />}>Like</Button>
+                        <Button variant="outlined" color="primary" size="small" startIcon={<ShareOutlined />}>Share</Button> */}
+                        {/* <Button color="primary" size="small" startIcon={<CommentOutlined />} >Comment</Button> */}
+                        <Button onClick={props.close('right', false)} variant="contained" color="primary" style={{
+                            float: "right"
+                        }}>Close</Button>
+                    </CardActions>
+                </Card>
+            </Grid>
+            {/* <Grid item md={2}></Grid> */}
         </Grid>
     );
 }

@@ -12,8 +12,7 @@ import Grid from '@material-ui/core/Grid';
 const useStyles = makeStyles({
     table: {
         minWidth: 50,
-        border: 0,
-        width: "100%"
+        border: 0
     },
 });
 
@@ -33,30 +32,33 @@ export default function DenseTable(props) {
     const classes = useStyles();
     const rows = props.rows;
     return (
-        <Grid item md={props.md}>
+        <Grid item>
             <TableContainer component={Paper}>
                 <Table className={classes.table} size="small" aria-label="a dense table">
                     <TableHead>
-                        <TableRow style={{ backgroundColor: "blue" }}>
+                        <TableRow style={{ backgroundColor: "lightgrey" }}>
                             <TableCell align="center" colSpan={props.rows.length}>{props.tableTitle}</TableCell>
+                            {/* <TableCell align="center">Calories</TableCell>
+                        <TableCell align="center">Fat&nbsp;(g)</TableCell>
+                        <TableCell align="center">Carbs&nbsp;(g)</TableCell>
+                        <TableCell align="center">Protein&nbsp;(g)</TableCell> */}
+
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        <TableRow>
-                            {rows.map((row) => (
-                                <TableCell component="th" align="center" scope="row">
-                                    <b>{row.name}</b>
-                                </TableCell>
-                            ))}
-                        </TableRow>
-
-                        <TableRow>
-                            {rows.map((row) => (
-                                <TableCell component="th" align="center" scope="row">
-                                    {row.value}
-                                </TableCell>
-                            ))}
-                        </TableRow>
+                        {rows.map((row) => (
+                            <TableRow>
+                                <React.Fragment>
+                        
+                                    <TableCell component="th" align="right" scope="row">
+                                        <b>{row.name}</b>
+                                    </TableCell>
+                                    <TableCell component="th" align="left" scope="row">
+                                        {row.value}
+                                    </TableCell>
+                                </React.Fragment>
+                            </TableRow>
+                        ))}
                     </TableBody>
                 </Table>
             </TableContainer>

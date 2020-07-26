@@ -13,9 +13,85 @@ import Button from '@material-ui/core/Button';
 
 import { HomeOutlined, MessageOutlined } from '@material-ui/icons';
 
+export default function ButtonAppBar() {
+    const classes = useStyles();
+
+    return (
+        <div className={classes.root}>
+            <AppBar position="fixed" color="primary" className={classes.height}>
+                <Toolbar>
+                    <Grid container spacing={2}>
+                        <Grid item sm={2} spacing={0}>
+                            {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                                <MenuIcon />
+                            </IconButton> */}
+                            <Typography variant="h7" className={classes.title}>
+                                <Button style={{
+                                    fontWeight: 1000,
+                                    fontFamily: "Verdana",
+                                    paddingBottom: 10
+                                }} color="inherit" title="Job Portal">
+                                    {/* <HomeOutlined />  */}
+                                    The Job Portal
+                                </Button>
+                            </Typography>
+                        </Grid>
+
+                        <Grid item sm={4} spacing={0}>
+                            {/* <Typography variant="h7" className={classes.title}>
+                                <Button color="inherit">
+                                    <HomeOutlined />
+                                </Button>
+                            </Typography> */}
+                            <Typography variant="h7" className={classes.title}>
+                                <Button color="inherit" style={{ textDecoration:"none"}}>
+                                    <Link to="/">Job </Link>
+                                </Button>
+                            </Typography>
+                            {/* <Typography variant="h7" className={classes.title}>
+                                <Button color="inherit">
+                                    <MessageOutlined />
+                                </Button>
+                            </Typography> */}
+                            <Typography variant="h7" className={classes.title}>
+                                <Button color="inherit">
+                                    <Link to="/results">Results  </Link>
+                                </Button>
+                            </Typography>
+                        </Grid>
+                        <Grid item sm={6} spacing={0}>
+                            <div className={classes.search}>
+                                <div className={classes.searchIcon}>
+                                    <SearchIcon />
+                                </div>
+                                <InputBase
+                                    placeholder="Search…"
+                                    variant="outlined"
+                                    classes={{
+                                        root: classes.inputRoot,
+                                        input: classes.inputInput,
+                                    }}
+                                    inputProps={{ 'aria-label': 'search' }}
+                                />
+                            </div>
+                        </Grid>
+                        {/* <Grid item sm={4} spacing={0}>
+                            <Typography variant="h8" className={classes.title}>
+                                Login
+                                </Typography>
+                        </Grid> */}
+                        {/* <Button color="inherit">Login</Button> */}
+                    </Grid>
+                </Toolbar>
+            </AppBar>
+        </div >
+    );
+}
+
+
 const useStyles = makeStyles((theme) => ({
     root: {
-        flexGrow: 1,
+        flexGrow: 1
     },
     menuButton: {
         marginRight: theme.spacing(2),
@@ -24,8 +100,8 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
     },
     height: {
-        minHeight: '50px',
-        height: '50px'
+        // minHeight: '50px',
+        // height: '50px'
     },
     search: {
         position: 'relative',
@@ -65,71 +141,3 @@ const useStyles = makeStyles((theme) => ({
         },
     },
 }));
-
-export default function ButtonAppBar() {
-    const classes = useStyles();
-
-    return (
-        <div className={classes.root}>
-            <AppBar position="fixed" color="primary" className={classes.height}>
-                <Toolbar>
-                    <Grid container spacing={2}>
-                        <Grid item sm={2} spacing={0}>
-                            {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                                <MenuIcon />
-                            </IconButton> */}
-                            <Typography variant="h7" className={classes.title}>
-                                <Button color="inherit" title="Job Portal">
-                                    <HomeOutlined /> Job Portal
-                                </Button>
-                            </Typography>
-                        </Grid>
-                        <Grid item sm={6} spacing={0}>
-                            <div className={classes.search}>
-                                <div className={classes.searchIcon}>
-                                    <SearchIcon />
-                                </div>
-                                <InputBase
-                                    placeholder="Search…"
-                                    classes={{
-                                        root: classes.inputRoot,
-                                        input: classes.inputInput,
-                                    }}
-                                    inputProps={{ 'aria-label': 'search' }}
-                                />
-                            </div>
-                        </Grid>
-                        <Grid item sm={4} spacing={0}>
-                            <Typography variant="h7" className={classes.title}>
-                                <Button color="inherit">
-                                    <HomeOutlined />
-                                </Button>
-                            </Typography>
-                            <Typography variant="h7" className={classes.title}>
-                                <Button color="inherit">
-                                    <Link to="/">Job </Link>
-                                </Button>
-                            </Typography>
-                            <Typography variant="h7" className={classes.title}>
-                                <Button color="inherit">
-                                    <MessageOutlined />
-                                </Button>
-                            </Typography>
-                            <Typography variant="h7" className={classes.title}>
-                                <Button color="inherit">
-                                    <Link to="/results">Results  </Link>
-                                </Button>
-                            </Typography>
-                        </Grid>
-                        {/* <Grid item sm={4} spacing={0}>
-                            <Typography variant="h8" className={classes.title}>
-                                Login
-                                </Typography>
-                        </Grid> */}
-                        {/* <Button color="inherit">Login</Button> */}
-                    </Grid>
-                </Toolbar>
-            </AppBar>
-        </div >
-    );
-}
